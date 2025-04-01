@@ -5,13 +5,13 @@
   "type": "module",
   "packageManager": "pnpm@9.1.1",
   "scripts": {
-    "dev": "pnpm dotenvx run --env-file=.env.production -- tsx watch --tsconfig tsconfig.node.json server/index.ts",
-    "build:typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
-    "build:server": "tsx --tsconfig tsconfig.node.json scripts/build-server.ts",
+    "dev": "pnpm dotenvx run --env-file=.env.production -- tsx watch --tsconfig tsconfig.json server/index.ts",
+    "build:typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.json",
+    "build:server": "tsx --tsconfig tsconfig.json scripts/build-server.ts",
     "build": "pnpm run build:typecheck && rm -rf dist && pnpm run build:server",
     "lint": "eslint .",
     "start": "pnpm dotenvx run --env-file=.env.production -- node dist/index.js",
-    "typegen": "pnpm supabase gen types typescript --project-id [INSERT_SUPABASE_PROJECT_ID] -s public,storage> src/database.gen.ts",
+    "typegen": "pnpm dotenvx run --env-file=.env.production -- pnpm supabase gen types typescript --project-id $SUPABASE_PROJECT_ID -s public,storage > src/database.gen.ts",
     "build:docker": " docker build --no-cache -t TEMPLATE ."
   },
   "dependencies": {

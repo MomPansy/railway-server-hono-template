@@ -5,7 +5,7 @@ import { build } from 'esbuild';
 (async () => {
   await build({
     entryPoints: ['server/index.ts', 'server/**/*.*'],
-    tsconfig: 'tsconfig.node.json',
+    tsconfig: 'tsconfig.json',
     format: 'esm',
     platform: 'node',
     target: 'node20',

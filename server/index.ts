@@ -2,13 +2,11 @@
 import { serveStatic } from "@hono/node-server/serve-static";
 import { serve } from "@hono/node-server";
 import { factory } from "./factory.ts";
-import { route as whatsappRoute } from "./routes/whatsapp/index.ts";
 
 const app = factory.createApp();
 
 export const apiRoutes = app
   .basePath('/api')
-  .route('/whatsapp', whatsappRoute)
 
 export type ApiRoutes = typeof apiRoutes;
 
