@@ -5,7 +5,7 @@ RUN echo "Before: corepack version => $(corepack --version || echo 'not installe
     npm install -g corepack@latest && \
     echo "After: corepack version => $(corepack --version || echo 'not installed')" && \
     corepack enable && \
-    corepack prepare pnpm@9.1.1 --activate && \ 
+    corepack prepare pnpm@10.7.0 --activate && \ 
     pnpm --version
 WORKDIR /app
 COPY . .
@@ -28,7 +28,7 @@ RUN echo "Before: corepack version => $(corepack --version || echo 'not installe
     npm install -g corepack@latest && \
     echo "After: corepack version => $(corepack --version || echo 'not installed')" && \
     corepack enable && \
-    corepack prepare pnpm@9.1.1 --activate && \ 
+    corepack prepare pnpm@10.7.0 --activate && \ 
     pnpm --version
 WORKDIR /app
 COPY --from=prod-deps /app/node_modules ./node_modules
